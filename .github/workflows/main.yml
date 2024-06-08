@@ -39,5 +39,5 @@ jobs:
       - name: Sonar Code coverage report
         run: |
           quality_status=$(curl -s -u 84a0dd28228061e5cbc82c45951f1180ae741e72: "https://sonarcloud.io/api/measures/component?component=sonargithubintegration_sonarqube-demo&metricKeys=coverage,duplicated_lines_density" -o sonar_metrics.json)
-          echo "cat sonar_metrics.json"; 
+          echo cat sonar_metrics.json
        
