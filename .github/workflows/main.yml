@@ -35,3 +35,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sonargithubintegration_sonarqube-demo
+
+      - name: Sonar Code coverage report
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install curl jq
+          sleep 5
+          quality_status=$(curl -s -u 84a0dd28228061e5cbc82c45951f1180ae741e72: https://sonarcloud.io/api/qualitygates/project_status?projectKey=sonargithubintegration_sonarqube-demo | jq -r '.projectStatus.status')
+          echo "SonarCloud analysis status is $quality_status"; 
+       
