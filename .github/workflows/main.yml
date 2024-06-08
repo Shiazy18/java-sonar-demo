@@ -41,6 +41,6 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install curl jq
           sleep 5
-          quality_status=$(curl -s -u 84a0dd28228061e5cbc82c45951f1180ae741e72: https://sonarcloud.io/api/qualitygates/project_status?projectKey=sonargithubintegration_sonarqube-demo | jq -r '.component.measures.value')
+          quality_status=$(curl -s -u 84a0dd28228061e5cbc82c45951f1180ae741e72: https://sonarcloud.io/api/measures/component?component=sonargithubintegration_sonarqube-demo&metricKeys=coverage,duplicated_lines_density | jq -r '.component.measures.value')
           echo "SonarCloud analysis status is $quality_status"; 
        
